@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2018 Projekt Substratum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-package com.android.systemui.statusbar.policy;
+package com.android.internal.substratum;
 
-
-/** {@hide} */
 oneway interface ISubstratumHelperService {
     void applyBootAnimation();
     void applyShutdownAnimation();

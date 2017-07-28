@@ -555,6 +555,8 @@
     <protected-broadcast android:name="android.media.VOLUME_STEPS_CHANGED_ACTION" />
 
     <protected-broadcast android:name="projekt.substratum.APP_CRASHED" />
+    <protected-broadcast android:name="com.android.systemui.action.RESTART_THEME" />
+    <protected-broadcast android:name="com.android.systemui.action.REFRESH_SOUND" />
 
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->

@@ -13,19 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package android.content.substratum;
-
-/** {@hide} */
 interface ISubstratumService {
-
     /**
      * Install a list of specified overlay packages
      *
      * @param paths Filled in with a list of path names for packages to be installed from.
      */
     void installOverlay(in List<String> paths);
-
     /**
      * Uninstall a list of specified overlay packages
      *
@@ -33,7 +28,6 @@ interface ISubstratumService {
      * @param restartUi Flag to automatically restart the SystemUI.
      */
     void uninstallOverlay(in List<String> packages, boolean restartUi);
-
     /**
      * Switch the state of specified overlay packages
      *
@@ -42,7 +36,6 @@ interface ISubstratumService {
      * @param restartUi Flag to automatically restart the SystemUI.
      */
     void switchOverlay(in List<String> packages, boolean enable, boolean restartUi);
-
     /**
      * Change the priority of a specified list of overlays
      *
@@ -50,12 +43,10 @@ interface ISubstratumService {
      * @param restartUi Flag to automatically restart the SystemUI.
      */
     void setPriority(in List<String> packages, boolean restartUi);
-
     /**
      * Restart SystemUI
      */
     void restartSystemUI();
-
     /**
      * Copy Method
      *
@@ -63,7 +54,6 @@ interface ISubstratumService {
      * @param destination   Path of the source file to be copied to.
      */
     void copy(String source, String destination);
-
     /**
      * Move Method
      *
@@ -71,14 +61,12 @@ interface ISubstratumService {
      * @param destination   Path of the source file to be moved to.
      */
     void move(String source, String destination);
-
     /**
      * Create Directory Method
      *
      * @param destination   Path of the created destination folder.
      */
     void mkdir(String destination);
-
     /**
      * Delete Directory Method
      *
@@ -86,28 +74,24 @@ interface ISubstratumService {
      * @param withParent    Flag to automatically delete the folder encompassing the folder.
      */
     void deleteDirectory(String directory, boolean withParent);
-
     /**
      * Apply a specified bootanimation
      *
      * @param name  Path to extract the bootanimation archive from.
      */
     void applyBootanimation(String name);
-
     /**
      * Apply a specified font pack
      *
      * @param name  Path to extract the font archive from.
      */
     void applyFonts(String pid, String fileName);
-
     /**
      * Apply a specified sound pack
      *
      * @param name  Path to extract the sounds archive from.
      */
     void applySounds(String pid, String fileName);
-
     /**
      * Profile Applicator
      *
@@ -118,7 +102,6 @@ interface ISubstratumService {
      */
     void applyProfile(in List<String> enable, in List<String> disable, String name,
             boolean restartUi);
-
     /**
      * Apply a specified shutdownanimation
      *
@@ -126,7 +109,6 @@ interface ISubstratumService {
      *              Use null to clear applied custom shutdown
      */
     void applyShutdownAnimation(String name);
-
     /**
      * Returns information about all installed overlay packages for the
      * specified user. If there are no installed overlay packages for this user,
