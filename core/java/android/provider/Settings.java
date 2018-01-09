@@ -4478,6 +4478,11 @@ public final class Settings {
          */
         public static final String SYSTEM_UI_THEME = "system_ui_theme";
 
+	/** Unlock keystore with fingerprint after reboot
+         * @hide
+         */
+        public static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+
         /**
          * Whether to show media/albumart on lockscreen
          * @hide
