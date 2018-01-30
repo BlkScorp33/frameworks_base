@@ -18,11 +18,14 @@ package com.android.keyguard;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.media.AudioManager;
+import android.provider.Settings;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.service.trust.TrustAgentService;
 import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
@@ -62,6 +65,8 @@ public class KeyguardHostView extends FrameLayout implements SecurityCallback {
     private OnDismissAction mDismissAction;
     private Runnable mCancelAction;
 
+    private KeyguardUpdateMonitor mKeyguardUpdateMonitor;
+
     private final KeyguardUpdateMonitorCallback mUpdateCallback =
             new KeyguardUpdateMonitorCallback() {
 
@@ -92,6 +97,18 @@ public class KeyguardHostView extends FrameLayout implements SecurityCallback {
                 } else {
                     mViewMediatorCallback.playTrustedSound();
                 }
+            }
+        }
+
+        @Override
+        public void onTrustChanged(int userId) {
+            boolean mFaceAuto = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                           Settings.Secure.FACE_AUTO_UNLOCK, 0,
+                           UserHandle.USER_CURRENT) == 1;
+            if (userId != KeyguardUpdateMonitor.getCurrentUser()) return;
+            if (mKeyguardUpdateMonitor.getUserCanSkipBouncer(userId)
+                && mKeyguardUpdateMonitor.getUserHasTrust(userId) && mFaceAuto) {
+                dismiss(false, userId);
             }
         }
     };
