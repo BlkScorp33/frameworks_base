@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 package android.content.substratum;
+
+/** {@hide} */
 interface ISubstratumService {
     /**
      * Install a list of specified overlay packages
